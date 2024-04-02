@@ -2,7 +2,7 @@
 
 DOCUMENTATION DU PROJET: Analyse et Prévision des Prix de l'Ethereum USD via Modélisation ARIMA/SARIMA
 SOURCE DES CODES : Python
-DATE: 02/28/2024
+DATE: 02/04/2024
 ---
 
 # Table des matières
