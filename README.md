@@ -1,6 +1,6 @@
 ---
 
-DOCUMENTATION DU PROJET: Analyse et Prévision des Prix de l'Ethereum USD via Modélisation ARIMA/SARIMA
+DOCUMENTATION DU PROJET:Analyse et prévision des prix bas et élevés de l'Ethereum en USD par la modélisation ARIMA/SARIMA
 SOURCE DES CODES : Python
 DATE: 02/04/2024
 ---
@@ -18,22 +18,22 @@ DATE: 02/04/2024
 # Description du projet
 
 
-Notre projet en Techniques de Programmation vise à analyser et prédire les fluctuations des prix de l'Ethereum USD (ETH-USD), une cryptomonnaie prédominante sur les marchés financiers. À l'aide de techniques d'automatisation pour la collecte de données, ainsi que de modélisation ARIMA/SARIMA, nous avons relevé le défi de concevoir un outil automatisé. Ce dernier effectue préalablement la collecte et la visualisation des données, la décomposition de la série temporelle, et la récupération des prix nécessaires à la prévision. Par la suite, il génère un modèle automatique capable de sélectionner le modèle adéquat, en tenant compte ou non des saisons (ARIMA ou SARIMA), selon les variations observées dans les données. Pour parfaire ce travail, l'outil convertit automatiquement les résultats en format PDF, qu'il envoie à des prospects potentiels toutes les 24 heures. L'objectif principal est de fournir des informations précieuses et rentables aux investisseurs en bourse ainsi qu'aux analystes financiers.
->**Note**: Nous avons opté pour les prix bas et élevés de l'Ethereum pour effectuer nos prédictions, cependant, bien d'autres alternatives restent également pertinentes.
+Notre projet en Techniques de Programmation vise à analyser et prédire les fluctuations des prix de l'Ethereum en USD (ETH-USD), une cryptomonnaie majeure sur les marchés financiers. À l'aide de techniques d'automatisation pour la collecte de données, ainsi que de la modélisation ARIMA/SARIMA, nous avons relevé le défi de concevoir un outil automatisé. Cet outil effectue préalablement la collecte et la visualisation des données, la décomposition de la série temporelle, et la récupération des prix nécessaires à la prévision. Par la suite, il génère un modèle automatique capable de sélectionner le modèle approprié, en tenant compte ou non des saisons (ARIMA ou SARIMA), selon les variations observées dans les données. Pour parfaire ce travail, l'outil convertit automatiquement les résultats au format PDF, qu'il envoie à des prospects potentiels toutes les 24 heures. L'objectif principal est de fournir des informations précieuses et rentables aux investisseurs en bourse ainsi qu'aux analystes financiers.
+>**Note**: Nous avons opté pour les prix bas et élevés de l'Ethereum pour effectuer nos prédictions ; cependant, bien d'autres alternatives restent également pertinentes.
 
 ## Prérequis et Guide d'Installation
 
-Cette section expose les procédures requises pour installer et configurer le projet sur votre machine locale.
+Cette section expose les procédures nécessaires pour installer et configurer le projet sur votre machine locale.
 ### Prérequis
 
-Avant d'entamer le processus d'installation, veuillez à disposer des outils et des logiciels suivants :
-* Python (version 3.10.x ou autre)
+Avant d'entamer le processus d'installation, veuillez vous assurer de disposer des outils et des logiciels suivants:
+* Python 
 * Git
 >**Note:** 
-Nous avons utilisé le langage Python sur l'éditeur Visual Studio Code dans le cadre de ce projet.
+Nous avons utilisé le langage Python avec l'éditeur Visual Studio Code dans le cadre de ce projet.
 
 ### Clonage du Dépôt
-Afin d'obtenir une copie du projet, cloner le dépôt GitHub sur votre machine locale en copiant le code suivant.
+Afin d'obtenir une copie du projet, clonez le dépôt GitHub sur votre machine locale en copiant le code suivant.
 
 ```python
 git clone <URL_du_dépôt>
@@ -42,7 +42,7 @@ Remplacez <URL_du_dépôt> par l'URL de la page de dépôt que vous avez preced�
 
 ### Installation des Dépendances
 
-Avant de proceder á la prediction, veuillez installer toutes les bibliothèques listées dans le fichier requirements.txt dans un environnement virtuel ou pour votre projet, vous pouvez utiliser la commande suivante dans le terminal :
+Avant de procéder à la prédiction, veuillez installer toutes les bibliothèques listées dans le fichier requirements.txt dans un environnement virtuel. Pour votre projet, vous pouvez utiliser la commande suivante dans le terminal :
 
 ```python
 pip install -r requirements.txt
@@ -50,47 +50,45 @@ pip install -r requirements.txt
 
 # Utilisation de Outil
 
-Pour se servir de l'outil de prédiction, il vous suffit de (RUN) le fichier principal ( MAIN.py) qui procède  automatiquement á la prédiction et á l'envoie par mail au format PDF. 
-
+Pour utiliser l'outil de prédiction, il vous suffit d'exécuter le fichier principal (MAIN.py) qui procède automatiquement à la collecte, à la visualisation, à l'extraction des prix bas et élevés, à la création du modèle automatique, à la prédiction des prix et à l'envoi des prédictions par e-mail au format PDF
 >**Note:** 
 Veuillez changer le mail du receveur afin d'être  sûr de recevoir le mail!
 
 # Fonctionalités Détaillées des Algorithmes de Prédiction de l'Ethereum USD
 
 ## Récupération des Données Brutes
-Ce bloc comprend le code nécessaire pour récupérer les données historiques de l'Ethereum USD depuis Yahoo Finance. Il utilise la bibliothèque yfinance pour extraire les données souhaités dans un format approprié pour une analyse ultérieure. 
-
+Ce bloc comprend le code nécessaire pour récupérer les données historiques de l'Ethereum en USD depuis Yahoo Finance. Il utilise la bibliothèque yfinance pour extraire les données souhaitées dans un format approprié pour une analyse ultérieure.
 >**Note:** 
-Les données sur yfinance sont actualisées tous les jours, cependant le modèle de prédiction que nous proposons est un modèle dynamique 
+Les données de yfinance sont actualisées tous les jours ; cependant, le modèle de prédiction que nous proposons est un modèle dynamique qui prend en compte les tendances, les cycles, les saisons et d'autres structures temporelles présentes dans les données.
 
 #### Implémentation
 
 * Importation des bibliothèques nécessaires, y compris numpy, pandas et yfinance.
 ```python
-from datetime import date # Import de la fonction date du module datetime
-from datetime import timedelta # Import de la fonction timedelta du module datetime
-import numpy as np  # Import du module numpy avec le surnom np
-import pandas as pd  # Import du module pandas avec le surnom pd
-import yfinance as yf  # Import du module yfinance pour récupérer les données financières
+from datetime import date 
+from datetime timedelta 
+import numpy as np  
+import pandas as pd  
+import yfinance as yf  
 ```
 * Configuration des paramètres d'affichage pour une meilleure visualisation des données.
 
 ```python
-import matplotlib  # Import du module matplotlib
-import warnings  # Import du module warnings pour gérer les avertissements
-warnings.filterwarnings("ignore")  # Ignorer les avertissements pour un affichage plus propre
-plt.style.use('fivethirtyeight')  # Utiliser le style de graphique 'fivethirtyeight' pour les tracés
-matplotlib.rcParams['axes.labelsize'] = 14  # Taille de police des étiquettes d'axe
-matplotlib.rcParams['xtick.labelsize'] = 12  # Taille de police des étiquettes de l'axe des x
-matplotlib.rcParams['ytick.labelsize'] = 12  # Taille de police des étiquettes de l'axe des y
-matplotlib.rcParams['text.color'] = 'k'  # Couleur du texte des graphiques
+import matplotlib  
+import warnings  
+warnings.filterwarnings("ignore")  
+plt.style.use('fivethirtyeight')  
+matplotlib.rcParams['axes.labelsize'] = 
+matplotlib.rcParams['xtick.labelsize'] = 
+matplotlib.rcParams['ytick.labelsize'] = 
+matplotlib.rcParams['text.color'] = 'k' 
 
 ```
 
 * Définition des dates de début et de fin pour la récupération des données.
 
 ```python 
-today = date.today()# Obtenir la date actuelle
+today = date.today()
     end_date = today.strftime("%Y-%m-%d")
     start_date = (date.today() - timedelta(days=120)).strftime("%Y-%m-%d")
 
@@ -110,22 +108,21 @@ today = date.today()# Obtenir la date actuelle
     print(data.head())
 ```
 >**Note:** 
-Assurez-vous d'avoir installé les bibliothèques nécessaires avant d'exécuter ce bloc de code. Vous pouvez spécifier la période de récupération des données en ajustant les paramètres de date selon vos besoins.
+Assurez-vous d'avoir installé les bibliothèques nécessaires avant d'exécuter ce bloc de code. Vous pouvez spécifier la période de récupération des données en ajustant les paramètres de date selon vos besoins..
 
 ## Récupération des Données Brutes
-Ce bloc implémente des techniques de visualisation pour explorer et comprendre les données récupérées. Il génère des graphiques en chandelier, des histogrammes et des graphiques de volatilité pour les prix hauts (High) et bas (Low) de l'Ethereum USD.
-
+Ce bloc met en œuvre des techniques de visualisation pour explorer et comprendre les données récupérées. Il génère des graphiques en chandeliers, des histogrammes et des graphiques de volatilité pour les prix élevés (High) et bas (Low) de l'Ethereum en USD.
 #### Implémentation
 >**Note:** 
 Veuillez importer au prealable les des bibliothèques de visualisation, notamment matplotlib, seaborn et Plotly.
 ```python
-import seaborn as sns # Import du module seaborn pour la visualisation de données
-import matplotlib.pyplot as plt  # Import du sous-module pyplot du module matplotlib avec le surnom plt
+import seaborn as sns  données
+import matplotlib.pyplot as plt  
 import matplotlib
 import plotly.graph_objects as go
 ```
 #### Seaborn (sns): 
-Pour des visualisations statistiques avancées, basée sur Matplotlib. Utilisée pour des graphiques plus esthétiques et complexes avec moins de code.
+Pour des visualisations statistiques avancées, basées sur Matplotlib. Utilisées pour des graphiques plus esthétiques et complexes avec moins de code.
 
 #### Matplotlib (plt): 
 Module de base pour la visualisation de données en Python, offrant un contrôle complet pour créer des graphiques statiques, animés et interactifs.
@@ -136,18 +133,17 @@ Outil pour des visualisations interactives et de haute qualité qui peuvent êtr
 * Création de graphiques en chandelier pour représenter les prix d'ouverture, de clôture, les plus hauts et les plus bas
 
 ```python
-# Création de la figure contenant le graphique en chandelier (Candlestick)
 figure = go.Figure(data=[go.Candlestick(x=data["Date"],
                                         open=data["Open"],
                                         high=data["High"],
                                         low=data["Low"],
                                         close=data["Close"])])
 
-# Mise à jour de la mise en page de la figure
+
 figure.update_layout(title="Ethereum USD (ETH-USD) Price Analysis",
                      xaxis_rangeslider_visible=False)
 
-# Affichage de la figure
+
 figure.show()
 ```
 #### go.Figure(): 
@@ -163,14 +159,13 @@ Ces données sont extraites d'un dataframe data préalablement défini, qui doit
 * Génération d'histogrammes pour analyser la distribution des prix hauts (High) et bas (Low)
 
 ```python
-# Analyse de la distribution des prix hauts (High)
 plt.figure(figsize=(10, 6))
 sns.histplot(data["High"], kde=True, color='blue')
 plt.title("Distribution des prix High d'Ethereum (ETH-USD)")
 plt.xlabel("Prix High")
 plt.ylabel("Densité")
 plt.show()
-#Analyse de la distribution des prix bas (Low)
+
 plt.figure(figsize=(10, 6))
 sns.histplot(data["Low"], kde=True, color='red')
 plt.title("Distribution des prix Low d'Ethereum (ETH-USD)")
@@ -196,7 +191,6 @@ Affiche le graphique.
 * Tracé de la volatilité des prix hauts (High) et bas (Low) au fil du temps
 
 ```python
-# Analyse de la volatilité des prix hauts (High)
 plt.figure(figsize=(10, 6))
 plt.plot(data["Date"], data["High"], color='green', label="Prix High")
 plt.title("Volatilité des prix hauts d'Ethereum (ETH-USD)")
@@ -207,7 +201,6 @@ plt.legend()
 plt.grid(True)
 plt.show()
 
-# Analyse de la volatilité des prix bas (Low)
 plt.figure(figsize=(10, 6))
 plt.plot(data["Date"], data["Low"], color='orange', label="Prix Low")
 plt.title("Volatilité des prix bas d'Ethereum (ETH-USD)")
@@ -238,13 +231,12 @@ Affiche une grille sur le graphique
 
 ```python
 from statsmodels.tsa.seasonal import seasonal_decompose
-# Décomposer la série temporelle pour les prix High
+
 decomposition_high = seasonal_decompose(data["High"], model='additive', period=7)
 trend_high = decomposition_high.trend
 seasonal_high = decomposition_high.seasonal
 residual_high = decomposition_high.resid
 
-# Décomposer la série temporelle pour les prix Low
 decomposition_low = seasonal_decompose(data["Low"], model='additive', period=7)
 trend_low = decomposition_low.trend
 seasonal_low = decomposition_low.seasonal
@@ -269,7 +261,7 @@ Obtient les résidus de la décomposition.
 * Visualisation des composantes des séries temporelles pour les prix High et Low
 
 ```python
-#Visualisation des composantes de la série temporelle pour les prix High
+
 plt.figure(figsize=(15, 10))
 plt.subplot(421)
 plt.plot(data.index, trend_high, label='Trend', color='green')
@@ -285,7 +277,6 @@ plt.legend(loc='upper left')
 plt.title('Residuals (High)')
 plt.tight_layout()
 
-# Visualisation des composantes de la série temporelle pour les prix Low
 plt.figure(figsize=(15, 10))
 plt.subplot(422)
 plt.plot(data.index, trend_low, label='Trend', color='green')
@@ -332,6 +323,7 @@ Ce bloc prépare les données récupérées pour la modélisation ARIMA/SARIMA. 
 ```python
 crypto_prices_high = data.set_index('Date')['High']
 crypto_prices_low = data.set_index('Date')['Low']
+
 print(crypto_prices_high.head())
 print(crypto_prices_low.head())
 ```
@@ -362,12 +354,10 @@ from pmdarima import auto_arima
 ```
 * Ajustement des modèles aux données historiques pour générer des prévisions
 ```python
-# Créer le modèle SARIMA automatique pour les prix hauts (High)
 print("\nCréation du modèle SARIMA automatique pour les prix hauts (High)...")
 model_auto_high = auto_arima(crypto_prices_high, seasonal=True, m=12, trace=True)
 print("\nRésumé du modèle SARIMA pour les prix hauts (High):\n", model_auto_high.summary())
 
-# Créer le modèle SARIMA automatique pour les prix bas (Low)
 print("\nCréation du modèle SARIMA automatique pour les prix bas (Low)...")
 model_auto_low = auto_arima(crypto_prices_low, seasonal=True, m=12, trace=True)
 print("\nRésumé du modèle SARIMA pour les prix bas (Low):\n", model_auto_low.summary())
@@ -403,13 +393,17 @@ Ce bloc génère des prévisions pour les prix hauts (High) et bas (Low) de l'Et
 * Génération des prévisions pour les prix hauts (High) et bas (Low) de l'Ethereum USD.
 
 ```python
- predictions_sarima_high, conf_int_high = model_auto_high.predict_in_sample(return_conf_int=True)
+    predictions_sarima_high, conf_int_high = model_auto_high.predict_in_sample(return_conf_int=True)
     predictions_sarima_low, conf_int_low = model_auto_low.predict_in_sample(return_conf_int=True)
+
     all_predictions_sarima_high = pd.concat([pd.Series(predictions_sarima_high, index=crypto_prices_high.index)], axis=0)
     all_predictions_sarima_low = pd.concat([pd.Series(predictions_sarima_low, index=crypto_prices_low.index)], axis=0)
+
     forecast_sarima_high = model_auto_high.predict(start=len(crypto_prices_high), end=len(crypto_prices_high) + 10)
     forecast_sarima_low = model_auto_low.predict(start=len(crypto_prices_low), end=len(crypto_prices_low) + 10)
+
     index_future_dates = pd.date_range(start=crypto_prices_high.index[-1], periods=11, freq='D')[1:]
+
     forecast_sarima_high_df = pd.DataFrame(forecast_sarima_high, index=index_future_dates, columns=['Predictions (High)'])
     forecast_sarima_low_df = pd.DataFrame(forecast_sarima_low, index=index_future_dates, columns=['Predictions (Low)'])
 ```
@@ -444,7 +438,7 @@ Crée un DataFrame similaire pour les prédictions futures des prix "Low".
 * Visualisation des prévisions à l'aide de graphiques et de données numériques.
 
 ```python
-plt.figure(figsize=(12, 6))
+    plt.figure(figsize=(12, 6))
     plt.plot(crypto_prices_high, label='Prix observés (High)', color='blue')
     plt.plot(all_predictions_sarima_high, label='Prédictions (High)', color='red')
     plt.plot(forecast_sarima_high_df, label='Prédictions pour les 10 prochains jours (High)', color='green', linestyle='--')
@@ -483,13 +477,22 @@ import matplotlib.pyplot as plt
 * Ajout des graphiques des prévisions et des données numériques au fichier PDF.
 
 ```python
- plt.figure(figsize=(12, 6))
+
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size=16)
+
+    pdf.cell(200, 10, txt="Prévisions des prix High et Low pour les 10 prochains jours (ETH-USD)", ln=True, align='C')
+    pdf.ln(10)
+
+    plt.figure(figsize=(12, 6))
     plt.plot(crypto_prices_high, label='Prix observés (High)', color='blue')
     plt.plot(all_predictions_sarima_high, label='Prédictions (High)', color='red')
-    plt.plot(forecast_sarima_high_df, label='Prédictions pour les 10 prochains jours (High)', color='green', linestyle='--')
+    plt.plot(forecast_sarima_high_df, label='Prédictions pour les 10 
+    prochains jours (High)', color='green', linestyle='--')
     plt.title('Prédictions du modèle ARIMA pour les prix High')
     plt.legend()
-    plt.savefig('predictions_high.png')  # Sauvegarder le graphique des prédictions High
+    plt.savefig('predictions_high.png')  
     plt.close()
     
     plt.figure(figsize=(12, 6))
@@ -498,16 +501,14 @@ import matplotlib.pyplot as plt
     plt.plot(forecast_sarima_low_df, label='Prédictions pour les 10 prochains jours (Low)', color='green', linestyle='--')
     plt.title('Prédictions du modèle ARIMA pour les prix Low')
     plt.legend()
-    plt.savefig('predictions_low.png')  # Sauvegarder le graphique des prédictions Low
+    plt.savefig('predictions_low.png')  
     plt.close()
     
-    # Ajout des images au PDF
     pdf.image('predictions_high.png', x=10, y=pdf.get_y(), w=180)
     pdf.ln(100)
     pdf.image('predictions_low.png', x=10, y=pdf.get_y(), w=180)
     pdf.ln(100)
     
-    # Ajout des valeurs numériques au PDF
     pdf.set_font("Arial", size=12)
     pdf.cell(200, 10, txt="Valeurs numériques des prédictions pour les prix [Low ; High] :", ln=True, align='L')
     pdf.ln(5)
@@ -515,7 +516,6 @@ import matplotlib.pyplot as plt
     for date, high_price, low_price in zip(forecast_sarima_high_df.index, forecast_sarima_high_df['Predictions (High)'], forecast_sarima_low_df['Predictions (Low)']):
         pdf.cell(200, 10, txt=f"{date.strftime('%Y-%m-%d')} : [{low_price}; {high_price}]", ln=True)
         
-    # Enregistrement du PDF
     pdf.output("predictions.pdf")
 ```
 
@@ -552,7 +552,7 @@ Ajoute une ligne de texte au PDF pour chaque date avec les prédictions High et 
 >**Note:** 
 Exécutez ce bloc de code pour créer un fichier PDF contenant des graphiques et des données numériques des prévisions des prix hauts (High) et bas (Low) de l'Ethereum USD sur les 10 prochains jours.
 
-## Envoie le Fichier PDF par Mail
+## Envoie des Prédiction au format PDF par Mail
 
 ###Description
 
@@ -584,17 +584,12 @@ from email import encoders
 ```python
 sender_email = 'cryptoforecast2@gmail.com'
 password = 'v to e e y s d d h v s u a x l'
-
-# Adresse e-mail du destinataire
 receiver_email = 'essohlath95@gmail.com'
-
-# Création de l'objet MIMEMultipart
 message = MIMEMultipart()
 message["From"] = sender_email
 message["To"] = receiver_email
 message["Subject"] = "Prévisions des prix"
 
-# Corps du message
 body = """
 Bonjour,
 
@@ -605,24 +600,19 @@ Lath
 """
 message.attach(MIMEText(body, "plain"))
 
-# Pièce jointe : fichier PDF
 filename = "predictions.pdf"
 with open(filename, "rb") as attachment:
     part = MIMEBase("application", "octet-stream")
     part.set_payload(attachment.read())
 
-# Encodage de la pièce jointe en base64
 encoders.encode_base64(part)
 
-# Ajout de l'en-tête de la pièce jointe
 part.add_header(
     "Content-Disposition",
     "attachment; filename=predictions.pdf",
 )
-# Ajout de la pièce jointe au message
 message.attach(part)
 
-# Envoi du courriel
 context = ssl.create_default_context()
 with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
     server.login(sender_email, password)
@@ -634,17 +624,12 @@ print("Email des prévisions envoyé avec succès !")
 Exécutez ce bloc de code pour envoyer automatiquement le fichier PDF des prévisions par e-mail à une adresse spécifiée.
 
 ## Boucle finale 
-Ce bloc de code est conçu pour automatiser l'exécution périodique d'un ensemble de tâches. Il utilise la bibliothèque time pour planifier l'exécution du code toutes les 24 heures.
+Ce bloc de code est conçu pour automatiser l'exécution périodique de toutes les tâches precedentes. Il utilise la bibliothèque time pour planifier l'exécution du code toutes les 24 heures.
 ```python
 import time
-
-# Définir la fréquence de mise à jour en secondes
-update_frequency = 86400  # Mettre à jour toutes les 24 heures
-
+update_frequency = 86400  
 while True:
     try:
-        # Insérer tout le programme ci-dessus (codes)
-
     time.sleep(update_frequency)
 ```
 
@@ -678,17 +663,19 @@ Assurez-vous d'insérer tout le code, y compris les importations, à l'intérieu
 
 * ##### Fichier (PDF.py): Création du PDF 
 
-* ##### Fichier (MAIN.py): envoie du mail aux futurs prospects.
+* ##### Fichier (EMAIL.py): Envoie du mail aux futurs prospects 
+
+* ##### Fichier (MAIN.py): Script final du projet englobant toutes les fonctions prédefinies.
 
 
 # Ouverture du Projet
-Notre projet a été une exploration réussie de l'automatisation des prévisions de prix pour l'Ethereum USD à travers des modèles ARIMA/SARIMA. En combinant des techniques d'analyse de séries temporelles, de visualisation de données et de génération de rapports automatisés, nous avons créé un outil robuste pour les investisseurs et les analystes financiers.
+Notre projet a pour objectif l'automatisation des prévisions de prix de l'Ethereum USD en utilisant des modèles ARIMA/SARIMA. En combinant des techniques d'analyse de séries temporelles, de visualisation de données et de génération de rapports automatisés, nous avons créé un outil robuste destiné aux investisseurs et aux analystes financiers.
 
-À travers ce README, nous avons fourni une documentation complète sur chaque aspect du projet, depuis la récupération des données brutes jusqu'à l'envoi des prévisions par e-mail. Les explications détaillées, les codes bien commentés et les exemples d'utilisation ont été inclus pour faciliter la compréhension et l'utilisation de notre solution.
+Ce README fournit une documentation complète sur chaque aspect du projet, depuis la récupération des données brutes jusqu'à l'envoi des prévisions par e-mail. Des explications détaillées sur le code et des exemples d'utilisation ont été inclus pour faciliter la compréhension et l'utilisation de l'outil.
 
-Les résultats obtenus ont démontré l'efficacité des modèles ARIMA/SARIMA dans la prédiction des prix de l'Ethereum USD. Les graphiques interactifs, les histogrammes et les séries temporelles décomposées ont permis une analyse approfondie des données historiques, tandis que les prévisions précises pour les 10 prochains jours ont fourni des informations cruciales pour la prise de décision.
+Les résultats obtenus ont démontré l'efficacité des modèles ARIMA/SARIMA dans la prédiction des prix de l'Ethereum USD. Les graphiques interactifs, les histogrammes et les séries temporelles décomposées ont permis une analyse approfondie des données historiques. De plus, les prévisions précises pour les 10 prochains jours ont fourni des informations cruciales pour la prise de décision.
 
-En créant un fichier PDF contenant à la fois des visualisations graphiques et des données numériques des prévisions, nous avons offert aux utilisateurs un moyen pratique de consulter et de partager les résultats de manière professionnelle.
+En générant un fichier PDF contenant à la fois des visualisations graphiques et des données numériques des prévisions, nous avons offert aux utilisateurs un moyen pratique de consulter et d'analyser les résultats de manière professionnelle.
 
-Ce projet a démontré l'importance de la programmation technique dans le domaine de la finance et des investissements, en permettant l'automatisation des tâches répétitives et la prise de décisions éclairées basées sur des analyses approfondies des données. En continuant à améliorer et à développer cette solution, nous pourrions potentiellement fournir un outil encore plus puissant pour la communauté des investisseurs.
+Ce projet a démontré l'importance de la programmation technique dans le domaine de la finance et des investissements, en permettant l'automatisation des tâches répétitives et la prise de décisions éclairées basées sur des analyses approfondies des données. Néanmoins, nous avons rencontré plusieurs difficultés dans la conception de notre outil. Nous étions à la base partis sur un modèle GARCH qui a pour objectif de modéliser et de prévoir la volatilité des séries temporelles financières. Toutefois, nous avons obtenu des prédictions qui ne reflétaient pas la réalité selon nous. En raison de la présence de saisonnalités, nous avons donc décidé de faire les prédictions avec un modèle SARIMA, qui est un modèle plus général utilisé pour la modélisation et la prévision des valeurs des séries temporelles avec prise en compte de la saisonnalité quand il y en a.
 
