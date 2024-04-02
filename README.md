@@ -68,7 +68,7 @@ Les données sur yfinance sont actualisées tous les jours, cependant le modèle
 * Importation des bibliothèques nécessaires, y compris numpy, pandas et yfinance.
 ```python
 from datetime import date # Import de la fonction date du module datetime
-from datetime timedelta # Import de la fonction timedelta du module datetime
+from datetime import timedelta # Import de la fonction timedelta du module datetime
 import numpy as np  # Import du module numpy avec le surnom np
 import pandas as pd  # Import du module pandas avec le surnom pd
 import yfinance as yf  # Import du module yfinance pour récupérer les données financières
