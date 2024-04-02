@@ -46,7 +46,7 @@ def send_email_with_attachment(sender_email, password, receiver_email, subject, 
 if __name__ == "__main__":
     sender_email = 'cryptoforecast2@gmail.com'
     password = 'v to e e y s d d h v s u a x l'
-    receiver_email = 'essohlath95@gmail.com'
+    receiver_email = '*******@gmail.com'
     subject = 'Prévisions des prix'
     body = """
     Bonjour,
@@ -54,6 +54,5 @@ if __name__ == "__main__":
     Veuillez trouver ci-joint les prévisions des prix de l’Ethereum USD sur les 10 prochains jours.
 
     Cordialement,
-    Lath
     """
     send_email_with_attachment(sender_email, password, receiver_email, subject, body)
