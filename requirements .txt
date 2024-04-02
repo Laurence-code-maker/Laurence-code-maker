@@ -1,0 +1,22 @@
+fpdf==1.7.2
+matplotlib==3.8.3
+pandas==2.2.1
+plotly==5.20.0
+pmdarima==2.0.4
+schedule==1.2.1
+seaborn==0.13.2
+statsmodels==0.14.1
+yfinance==0.2.37
+
+Note: Pour ce projet-ci, veuillez installer tout ces pip en fonction de votre editeur avant de RUN les codes.
+
+Exemple:
+pip install reportlab
+pip install fpdf tabulate
+pip install pmdarima
+pip install statsmodels
+pip install yfinance
+pip install matplotlib
+pip install seaborn
+pip install schedule
+pip install plotly
