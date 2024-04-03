@@ -109,7 +109,7 @@ today = date.today()
 >**Note:** 
 Assurez-vous d'avoir installé les bibliothèques nécessaires avant d'exécuter ce bloc de code. Vous pouvez spécifier la période de récupération des données en ajustant les paramètres de date selon vos besoins..
 
-## Récupération des Données Brutes
+## Visualisation des Données Brutes
 Ce bloc met en œuvre des techniques de visualisation pour explorer et comprendre les données récupérées. Il génère des graphiques en chandeliers, des histogrammes et des graphiques de volatilité pour les prix élevés (High) et bas (Low) de l'Ethereum en USD.
 #### Implémentation
 >**Note:** 
