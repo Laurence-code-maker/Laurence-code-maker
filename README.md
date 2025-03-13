@@ -584,7 +584,7 @@ from email import encoders
 
 ```python
 sender_email = 'cryptoforecast2@gmail.com'
-password = 'v to e e y s d d h v s u a x l'
+password = ''
 receiver_email = 'essohlath95@gmail.com'
 message = MIMEMultipart()
 message["From"] = sender_email
