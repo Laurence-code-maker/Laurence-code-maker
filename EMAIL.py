@@ -45,7 +45,7 @@ def send_email_with_attachment(sender_email, password, receiver_email, subject, 
 # Exécution
 if __name__ == "__main__":
     sender_email = 'cryptoforecast2@gmail.com'
-    password = 'v to e e y s d d h v s u a x l'
+    password = ''
     receiver_email = '*******@gmail.com'
     subject = 'Prévisions des prix'
     body = """
